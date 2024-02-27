@@ -16,15 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="71852" translatesAutoresizingMaskIntoConstraints="NO" id="6in-iV-XPt">
-                                <rect key="frame" x="62" y="149" width="262" height="215"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="istanbul" translatesAutoresizingMaskIntoConstraints="NO" id="l9Y-Wg-ygg">
+                                <rect key="frame" x="76" y="132" width="251" height="154"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ankara" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyj-4P-mgL">
-                                <rect key="frame" x="70" y="395" width="254" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Istanbul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tge-m4-jBg">
+                                <rect key="frame" x="76" y="325" width="251" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="Guk-bB-Fcc"/>
+                                    <constraint firstAttribute="height" constant="44" id="4Vu-ZX-EdL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -32,27 +32,27 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6in-iV-XPt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="Nf3-aM-Nbl"/>
-                            <constraint firstItem="Tyj-4P-mgL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VOM-3o-NzF"/>
-                            <constraint firstItem="6in-iV-XPt" firstAttribute="trailing" secondItem="Tyj-4P-mgL" secondAttribute="trailing" id="a5a-Yo-QXy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tyj-4P-mgL" secondAttribute="bottom" constant="371" id="bYs-SA-0iQ"/>
-                            <constraint firstItem="Tyj-4P-mgL" firstAttribute="top" secondItem="6in-iV-XPt" secondAttribute="bottom" constant="31" id="jgf-0x-jbP"/>
-                            <constraint firstItem="6in-iV-XPt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="qaj-Vx-zvr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6in-iV-XPt" secondAttribute="trailing" constant="69" id="zVE-De-ZYt"/>
+                            <constraint firstItem="l9Y-Wg-ygg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="5Oa-Yg-Ocg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l9Y-Wg-ygg" secondAttribute="trailing" constant="66" id="Jea-Hv-QB4"/>
+                            <constraint firstItem="l9Y-Wg-ygg" firstAttribute="leading" secondItem="tge-m4-jBg" secondAttribute="leading" id="NGj-aG-T7S"/>
+                            <constraint firstItem="l9Y-Wg-ygg" firstAttribute="trailing" secondItem="tge-m4-jBg" secondAttribute="trailing" id="X4G-z4-kOe"/>
+                            <constraint firstItem="l9Y-Wg-ygg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="jm0-aU-Tui"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tge-m4-jBg" secondAttribute="bottom" constant="449" id="sqb-Q0-mGC"/>
+                            <constraint firstItem="tge-m4-jBg" firstAttribute="top" secondItem="l9Y-Wg-ygg" secondAttribute="bottom" constant="39" id="yGM-EV-AdB"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="6in-iV-XPt" id="EHl-pv-dkW"/>
-                        <outlet property="label" destination="Tyj-4P-mgL" id="Dwl-sT-dJ4"/>
+                        <outlet property="imageView" destination="l9Y-Wg-ygg" id="v04-zX-8on"/>
+                        <outlet property="label" destination="tge-m4-jBg" id="Q8I-oe-lq6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11660" y="-167"/>
+            <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>
-        <image name="71852" width="3000" height="1289"/>
+        <image name="istanbul" width="1200" height="675"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

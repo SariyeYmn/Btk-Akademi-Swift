@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  JestAlgilayicilar
+//  AlertMessages
 //
-//  Created by iOS-Lab11 on 27.02.2024.
+//  Created by iOS-Lab11 on 26.02.2024.
 //
 
 import UIKit
