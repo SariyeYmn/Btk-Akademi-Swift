@@ -12,6 +12,7 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var productName: UITextField!
     @IBOutlet weak var productPrice: UITextField!
     @IBOutlet weak var productSize: UITextField!
+    @IBOutlet weak var kaydetButton: UIButton!
     
     var choseProductName = ""
     var choseProductUUID : UUID?
@@ -21,13 +22,52 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         
         if choseProductName != ""{
+            kaydetButton.isHidden = true
             //Core Data seçilen ürün bilgilerini göster
             
             if let uuidString = choseProductUUID?.uuidString{
-                let appDelegate = 
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alisveris")
+                //filtreleme işlemi
+                //NSPredicate mantıksal sınırlamalar koyup buna göre işlem yapacaksın
+                fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+                fetchRequest.returnsObjectsAsFaults = false
+                
+                do{
+                    let sonuclar  = try context.fetch(fetchRequest)
+                    if sonuclar.count > 0 {
+                        for sonuc in sonuclar as! [NSManagedObject]{
+                            if let isim = sonuc.value(forKey: "isim") as? String{
+                                productName.text = isim
+                            }
+                            
+                            if let fiyat = sonuc.value(forKey: "fiyat") as? Int{
+                                productPrice.text = String(fiyat)
+                            }
+                            
+                            if let beden = sonuc.value(forKey: "beden") as? String{
+                                productSize.text = beden
+                            }
+                            
+                            if let gorselData = sonuc.value(forKey: "gorsel") as? Data{
+                                let image = UIImage(data: gorselData)
+                                imageView.image = image
+                            }
+                        }
+                        
+                    }
+        
+                }catch{
+                    print("hata var")
+                }
+                
             }
             
         }else{
+            kaydetButton.isHidden = false //gizleme
+            kaydetButton.isEnabled = false //tıklama
             productName.text = ""
             productPrice.text = ""
             productSize.text = ""
@@ -54,6 +94,7 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage
+        kaydetButton.isEnabled = true
         self.dismiss(animated: true, completion: nil)
         //dismiss : imagepickercontroller ı kapat imageview a geri dön
     }

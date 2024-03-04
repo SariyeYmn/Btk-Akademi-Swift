@@ -110,6 +110,7 @@
                     <navigationItem key="navigationItem" id="1xU-h4-zdk"/>
                     <connections>
                         <outlet property="imageView" destination="5ow-HR-YJp" id="uZF-F5-0O7"/>
+                        <outlet property="kaydetButton" destination="1us-Fc-TOr" id="iqT-yN-06Z"/>
                         <outlet property="productName" destination="j6u-Yj-cUz" id="Qi9-FW-m8J"/>
                         <outlet property="productPrice" destination="gLu-Ya-CvP" id="ccW-Yh-7Pf"/>
                         <outlet property="productSize" destination="UrX-kq-hbt" id="JbF-TF-zKJ"/>

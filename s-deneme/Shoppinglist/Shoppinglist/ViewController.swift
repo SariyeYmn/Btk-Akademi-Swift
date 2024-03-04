@@ -93,5 +93,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
 
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alisveris")
+            
+            let uuidString = idArray[indexPath.row].uuidString
+            
+            fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do{
+                let sonuclar = try context.fetch(fetchRequest)
+                if sonuclar.count > 0{
+                    for sonuc in sonuclar as! [NSManagedObject]{
+                        if let id = sonuc.value(forKey: "id") as? UUID{
+                            if id == idArray[indexPath.row]{
+                                context.delete(sonuc)
+                                nameArray.remove(at: indexPath.row)
+                                idArray.remove(at: indexPath.row)
+                                
+                                //veriler değişti kendini güncelle
+                                self.tableView.reloadData()
+                                do{
+                                    try context.save()
+                                }catch{
+                                    
+                                }
+                                break 
+                            }
+                        }
+                        
+                    }
+                }
+                
+            }catch{
+                print("Hata var")
+            }
+            
+        }
+    }
 }
 

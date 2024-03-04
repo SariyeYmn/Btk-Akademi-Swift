@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsG-lW-2qg">
+                                <rect key="frame" x="3" y="181" width="393" height="560"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim Giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S4H-eb-HJM">
+                                <rect key="frame" x="42" y="74" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notunuzu Giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UI9-ZH-ueH">
+                                <rect key="frame" x="42" y="124" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nq0-8k-5R6">
+                                <rect key="frame" x="134" y="759" width="113" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Kaydet"/>
+                                <connections>
+                                    <action selector="kaydetClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eht-D4-bHx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nq0-8k-5R6" secondAttribute="bottom" constant="24" id="EDB-UN-VZW"/>
+                            <constraint firstItem="jsG-lW-2qg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="EPI-e1-VHG"/>
+                            <constraint firstItem="S4H-eb-HJM" firstAttribute="leading" secondItem="UI9-ZH-ueH" secondAttribute="leading" id="ORi-ow-ZnE"/>
+                            <constraint firstItem="UI9-ZH-ueH" firstAttribute="centerX" secondItem="jsG-lW-2qg" secondAttribute="centerX" id="PzT-hF-hyR"/>
+                            <constraint firstItem="Nq0-8k-5R6" firstAttribute="top" secondItem="jsG-lW-2qg" secondAttribute="bottom" constant="18" id="SBW-s8-FE6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jsG-lW-2qg" secondAttribute="trailing" constant="-19" id="Tte-Yz-ppC"/>
+                            <constraint firstItem="Nq0-8k-5R6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="fWv-ap-i4I"/>
+                            <constraint firstItem="S4H-eb-HJM" firstAttribute="trailing" secondItem="UI9-ZH-ueH" secondAttribute="trailing" id="gYf-cw-Pi7"/>
+                            <constraint firstItem="UI9-ZH-ueH" firstAttribute="top" secondItem="S4H-eb-HJM" secondAttribute="bottom" constant="16" id="lBN-qT-p5L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nq0-8k-5R6" secondAttribute="trailing" constant="146" id="lrI-Fw-r1u"/>
+                            <constraint firstItem="S4H-eb-HJM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="p5e-WU-oxH"/>
+                            <constraint firstItem="jsG-lW-2qg" firstAttribute="top" secondItem="UI9-ZH-ueH" secondAttribute="bottom" constant="23" id="qG0-UG-jFI"/>
+                            <constraint firstItem="S4H-eb-HJM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="xDw-tm-eYG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="jsG-lW-2qg" id="d7f-8Q-a65"/>
+                        <outlet property="nameTextField" destination="S4H-eb-HJM" id="hKP-iZ-YZk"/>
+                        <outlet property="noteTextField" destination="UI9-ZH-ueH" id="PoM-T8-krk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
