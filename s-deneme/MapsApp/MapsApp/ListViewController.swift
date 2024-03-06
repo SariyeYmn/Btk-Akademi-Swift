@@ -2,7 +2,7 @@
 //  ListViewController.swift
 //  MapsApp
 //
-//  Created by iOS-Lab07 on 5.03.2024.
+// 5.03.2024.
 //
 
 import UIKit
@@ -14,6 +14,8 @@ class ListViewController: UIViewController , UITableViewDelegate, UITableViewDat
     var nameArray = [String]()
     var idArray = [UUID]()
     
+    var chosePlaceName = ""
+    var chosePlaceId : UUID?
     override func viewDidLoad() {
         super.viewDidLoad()
                     
@@ -25,8 +27,11 @@ class ListViewController: UIViewController , UITableViewDelegate, UITableViewDat
         veriAl()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(veriAl), name: NSNotification.Name("yeniYerOlusturuldu"), object: nil)
+    }
     
-    func veriAl(){
+    @objc func veriAl(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -59,6 +64,7 @@ class ListViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     
     @objc func plusClick(){
+        chosePlaceName = ""
         performSegue(withIdentifier: "toMapsVC", sender: nil)
         
     }
@@ -72,6 +78,22 @@ class ListViewController: UIViewController , UITableViewDelegate, UITableViewDat
         cell.textLabel?.text = nameArray[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chosePlaceName = nameArray[indexPath.row]
+        chosePlaceId = idArray[indexPath.row]
+        performSegue(withIdentifier: "toMapsVC", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMapsVC"{
+            let  destinationVC = segue.destination as! MapsViewController
+            destinationVC.choseName = chosePlaceName
+            destinationVC.choseId = chosePlaceId
+        }
+    }
+    
+    
+    
     
 
 
